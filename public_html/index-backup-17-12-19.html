@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Formulário PIB Bodoquena</title>
+</head>
+<body class="body">
+    <h5 class="titulo">Seja bem vindo!</h5>
+    <p class="subtitulo">Relatório Financeiro e Estatístico de Cultos - REFC <small>(Primeira Igreja Batista em Bodoquena)</small></p>
+    <p class="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in elit in quam facilisis vestibulum vitae vel diam.</p><br><br>
+    
+    <div class="section">
+            <div class="row">
+                <form class="col s12 l6">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="dataPesquisa" placeholder="Insira a data" type="text" class="datepicker">
+                            <label for="data">Dia da Semana</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Digite o nome do pregador" id="responsavel" type="text" class="validate">
+                            <label for="responsavel">Responsável pelo culto </label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Digite o tema da mensagem" id="tema" type="text" class="validate">
+                            <label for="tema">Tema da mensagem</label>
+                        </div>
+                    </div>
+
+                    <!--                                   -->
+                    <!-- ABA DEMONSTRATIVO DE ARRECADAÇÕES -->
+                    <!--                                   -->
+
+                    <div class="row">
+                        <p>Demonstrativo de Arrecadações</p>
+                        <div class="input-field form-group col s4">
+                            <input placeholder="Insira o valor" id="arredacadao" type="number" class="validate input form-control prc">
+                            <label for="arredacadao">Valor da Arrecadação</label>
+                        </div>
+                        <div class="input-field  col s8">
+                            <input placeholder="Exemplo dízimo, oferta especial..." id="categoria_arrecadacao" type="text" class="validate">
+                            <label for="categoria_arrecadacao">Categoria da Arrecadação</label>
+                        </div>
+                        <div id="divPrincipal"></div>
+                        <button id="botaoadicionar" class="btn-small btn-adicionar col l5 s12" type="button"><stronger>+</stronger> Adicionar arrecadação</button> 
+                        <div class="mt30"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 form-group" style="margin-bottom: 30px !important;">
+                            Total de entradas:
+                            <div class="input-field inline">
+                            <output id="total_entradas"></output>
+                            <span class="helper-text"  data-success="right">Durante o culto</span>
+                            </div>
+                        </div>
+                        <div class="mt30"></div>                        
+                        <button id="botaosomar" class="btn-small btn-somar col l4 s12" type="button">Somar arrecadações</button>
+                    </div>
+
+                    <!--                                   -->
+                    <!-- ABA DEMONSTRATIVO DE ARRECADAÇÕES -->
+                    <!--                                   -->
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="conversoes" type="number" class="validate">
+                            <label for="conversoes">Conversões</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="visitantes" type="number" class="validate">
+                            <label for="visitantes">Visitantes</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="convidados" type="number" class="validate">
+                            <label for="convidados">Convidados</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="total_criancas" type="number" class="validate">
+                            <label for="total_criancas">Nº de Crianças</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>Demonstrativo de Arrecadações</p>
+                        <div class="input-field  col s4">
+                            <input id="test" placeholder="Insira o valor" id="arredacadao" type="number" class="validate">
+                            <label for="arredacadao">Valor da Arrecadação</label>
+                        </div>
+                        <div class="input-field  col s8">
+                            <input id="test" placeholder="Exemplo dízimo, oferta especial..." id="categoria_arrecadacao" type="text" class="validate">
+                            <label for="categoria_arrecadacao">Categoria da Arrecadação</label>
+                        </div>
+                        <div id="divPrincipal"></div>
+                        <button id="botaoadicionar" class="btn-small btn-adicionar col l5 s12" type="button"><stronger>+</stronger> Adicionar arrecadação</button> 
+                        <div class="mt30"></div>
+                        <div class="divider"></div>
+                        <button id="botaoprint" class="btn-small btn-printar col l4 s12" type="button">Exportar</button>
+                    </div>
+                </form>
+            </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+
+            $(document).ready(function(){
+                $('.datepicker').datepicker();
+            });
+
+            $(document).ready(function(){
+                $('.form-group').on('input', '.prc', function(){
+                    var totalSum = 0;
+                    $('.form-control .prc').each(function(){
+                        var inputVal = $(this).val();
+                        if($.isNumeric(inputVal)){
+                            totalSum += parseFloat(inputVal);
+                        }
+                    });
+                    $('#total_entradas').val(totalSum);
+                });
+            });
+
+            $(document).ready(function(){
+                $("#botaoadicionar").click(function(){
+                    $('<div class="input-field form-group col s4"><input placeholder="Insira o valor" id="arredacadao" type="number" class="validate form-control prc"><label class="active" for="arredacadao">Valor da Arrecadação</label></div><div class="input-field col s8"><input placeholder="Exemplo dízimo, oferta especial..." id="categoria_arrecadacao" type="text" class="validate"><label class="active" for="categoria_arrecadacao">Categoria da Arrecadação</label></div>').appendTo("#divPrincipal");
+                });
+            });
+
+        });
+
+    </script>
+</body>
+</html>
