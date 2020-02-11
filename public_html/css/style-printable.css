@@ -1,0 +1,120 @@
+.body{
+    padding: 20px 50px;
+}
+
+.subtitulo{
+    font-weight: 600;
+    font-size: 27px !important;
+}
+
+.titulo{
+    color: #22941bde !important;
+    font-weight: 700 !important;
+    font-size: 25px !important;
+}
+
+.texto{
+    font-size: 13.5px;
+}
+
+.btn-adicionar {
+    display: none !important;
+}
+
+.btn-somar {
+    display: none !important;
+}
+
+.btn-printar {
+    display: none !important;
+}
+
+.stronger {
+    font-weight: 750 !important;
+}
+
+.azul {
+    color: blue
+}
+
+.btn-adicionar:hover {
+    background-color: #1aa713de;
+}
+
+.btn-adicionar:focus {
+    background-color: #22941bde;
+}
+
+.btn-printar:hover {
+    background-color: #db3300de;
+}
+
+.btn-printar:focus {
+    background-color: #b82b00de;
+}
+
+.btn-somar:focus {
+    background-color: #0861aade;
+}
+
+.btn-somar:hover {
+    background-color: #0d76ccde;
+}
+
+nav .input-field label i {
+  color: rgba(255, 255, 255, 0.7);
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}   
+
+.mt30 {
+    margin-top: 30px !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.warning-text {
+    display: none !important;
+}
+
+button {
+    display: none;
+}
+
+@media screen {
+    div.divFooter {
+      display: none;
+    }
+  }
+
+.helper-text {
+    display: none;
+}
+
+.total-entradas{
+    font-weight: 600 !important;
+}
+
+input {
+    font-style: italic !important;
+    border: none !important;
+    font-weight: 600 !important;
+    float: left !important;
+}
+
+#total_entradas {
+    color: #14720fde !important;
+    font-weight: 600 !important;
+    font-style: italic !important;
+}
+
+
+.subtitulo-arrecadacao {
+    text-decoration: underline !important;
+}
+
+.header2 {
+    text-align: center !important;
+}
